@@ -1,0 +1,77 @@
+Write a function that takes in two arrays 
+and finds the pair of numbers whose absolute difference is closest to zero.
+
+Time --> O(Nlog(n) + MLog(m))
+Space --> O(1)
+main(arr1, arr2)
+let left = 0
+let right = 0
+arr1.sort((a, b) => a - b)
+arr2.sort((a,b) => a - b)
+
+let minDiff = Infinity
+let result;
+while(left < arr1.length && right < arr2.length){
+  let leftV = array[left]
+  let rightV = array[right]
+  let currDiff = leftV > rightV ? leftV - rightV : rightV - leftV
+  if(currDiff === 0) return [leftV, rightV]
+  if(currDiff < minDiff){
+    minDiff = currDiff
+    result = [leftV, rightV]
+  }
+  
+  if(leftV < rightV){
+    left++
+  }else {
+    right++
+  }
+  
+ }
+ 
+ return result
+ 
+ function smallestDifference(arrayOne, arrayTwo){
+  arrayOne.sort((a,b) => a - b)
+  arrayTwo.sort((a,b) => a - b)
+  let left = 0
+  let right = 0 
+  let result = []
+  let minDiff = Infinity
+  while(left < arrayOne.length && right < arrayTwo.length){
+    let leftV = arrayOne[left]
+    let rightV = arrayTwo[right]
+    let diff = leftV > rightV ? leftV - rightV : rightV - leftV
+    if(diff === 0) return [leftV,rightV]
+    if(diff < minDiff){
+      minDiff = diff
+      result = [leftV,rightV]
+    }
+    
+    if(leftV < rightV){
+      left++
+    }else {
+      right++
+    }
+   }
+   
+   return result
+  
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
